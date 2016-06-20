@@ -1,0 +1,56 @@
+﻿@import "agenda.less";
+@import "toolbar.less";
+
+.cal-fill {
+    height: 100%;
+}
+
+calendar {
+    display: block;
+}
+
+calendar-app {
+    display: block;
+}
+
+.cal {
+    font-size: @fontSize;
+    position: relative;
+    width: 100%;
+}
+
+.cal-container {
+    display: table;
+    width: 100%;
+
+    > * {
+        display: table-row;
+        height: 0;
+    }
+
+    > *.cal-fillavailable {
+        height: auto;
+    }
+}
+
+.cal-ltr {
+    direction: ltr;
+    text-align: left;
+
+    .cal-right {
+        text-align: right;
+    }
+}
+
+.cal-rtl {
+    direction: rtl;
+    text-align: right;
+
+    .cal-right {
+        text-align: left;
+    }
+}
+
+.cal-center {
+    text-align: center;
+}

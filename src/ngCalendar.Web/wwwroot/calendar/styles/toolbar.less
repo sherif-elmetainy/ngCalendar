@@ -1,0 +1,58 @@
+﻿@import "constants.less";
+@import "mixins.less";
+@import "buttons.less";
+
+.cal-toolbar {
+    h2 {
+        font-size: 1.6em;
+        margin: 0;
+    }
+    padding: 0.33333em 0;
+    > div {
+        height: 100%;
+    }
+    .cal-button-group {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .cal-button-group, .cal-left, .cal-right, .cal-center {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.cal-ltr {
+    .cal-button-group {
+        a {
+            float: left;
+            margin: 0 0 0 -@borderWidth;
+        }
+
+        a:first-child {
+            .round-border-left(@buttonRadius);
+            margin-left: 0;
+        }
+
+        a:last-child {
+            .round-border-right(@buttonRadius);
+        }
+    }
+}
+
+.cal-rtl {
+    .cal-button-group {
+        a {
+            float: right;
+            margin: 0 -@borderWidth 0 0;
+        }
+
+        a:first-child {
+            .round-border-right(@buttonRadius);
+            margin-right: 0;
+        }
+
+        a:last-child {
+            .round-border-left(@buttonRadius);
+        }
+    }
+}

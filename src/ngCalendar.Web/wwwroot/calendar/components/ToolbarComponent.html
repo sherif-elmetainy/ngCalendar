@@ -1,0 +1,10 @@
+﻿<div class="cal-toolbar">
+    <div class="{{className}}" [style.width]="(100.0 / sections.length) + '%'" *ngFor="let section of sections" [attr.class]="section.className">
+        <div class="cal-button-group" *ngFor="let group of section.groups">
+            <template ngFor let-element [ngForOf]="group.elements">
+                <a *ngIf="element.elementType !== 'Title'" [ngClass]="element.classes" [attr.disabled]="element.disabled ? 'disabled' : null" [class.cal-state-disabled]="element.disabled" [class.cal-state-down]="element.down" [innerHTML]="element.content" (click)="element.click()"></a>
+                <h2 *ngIf="element.elementType === 'Title'">{{element.content}}</h2>
+            </template>
+        </div>
+    </div>
+</div>

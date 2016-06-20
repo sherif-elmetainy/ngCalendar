@@ -1,0 +1,10 @@
+﻿{
+  "port": 4000,
+  "files": [ "./wwwroot/**/*.{html,htm,less,less.map,js,ts,js.map,css}" ],
+  "server": {
+    "baseDir": "./wwwroot",
+    "routes": {
+      "/node_modules": "node_modules"
+    }
+  }
+}

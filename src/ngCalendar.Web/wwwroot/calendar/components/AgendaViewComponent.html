@@ -1,0 +1,70 @@
+﻿<div class="cal-view cal-agenda-view cal-container cal-fill" (window:resize)="resize()">
+    <div>
+        <table class="cal-header-container">
+            <tr>
+                <th class="cal-axis" [attr.rowspan]="headerRows"></th>
+                <th class="cal-header-date-cell">
+                    <table class="cal-dates-container">
+                        <tr>
+                            <th *ngFor="let day of days" [style.width]="(100.0 / days.length) + '%'">{{formatDate(day)}}</th>
+                        </tr>
+                    </table>
+                </th>
+                <th [style.width]="scrollWidth" class="cal-scroll-plh" [attr.rowspan]="headerRows"></th>
+            </tr>
+            <tr *ngIf="headerRows > 1">
+                <td class="cal-header-title-cell">
+                    <table class="cal-titles-container">
+                        <tr>
+                            <template ngFor #day [ngForOf]="days">
+                                <th class="cal-header-date-cell" *ngFor="let source of sourceNames" [style.width]="(100.0 / (days.length * sourceNames.length)) + '%'">{{source}}</th>
+                            </template>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="cal-all-day">
+            <tr>
+                <td class="cal-axis">All Day</td>
+                <td class="cal-all-day-container-cell">
+                    <table class="cal-all-day-container">
+                        <tr>
+                            <template ngFor #day [ngForOf]="days">
+                                <td class="cal-all-day-cell" *ngFor="let source of sourceNames" [style.width]="(100.0 / (days.length * sourceNames.length)) + '%'">&nbsp;</td>
+                            </template>
+                        </tr>
+                    </table>
+                </td>
+                <td [style.width]="scrollWidth" class="cal-scroll-plh" [attr.rowspan]="headerRows"></td>
+            </tr>
+        </table>
+        <hr class="cal-divider" />
+    </div>
+    <div class="cal-fillavailable ">
+        <div class="cal-agenda-scoll-window">
+            <div class="cal-agenda-content">
+                <div class="cal-grid">
+                    <table>
+                        <tr *ngFor="let slot of timeslots">
+                            <td class="cal-axis cal-time-slot" [class.cal-time-sub-slot]="isSubslot(slot)">{{ getTimeSlot(slot)}}</td>
+                            <td [class.cal-time-sub-slot]="isSubslot(slot)" class="cal-grid-row">
+                                <table class="cal-grid-inner-cells">
+                                    <tr>
+                                        <template ngFor #day [ngForOf]="days">
+                                            <td class="cal-grid-cell" *ngFor="let source of sourceNames" [style.width]="(100.0 / (days.length * sourceNames.length)) + '%'">&nbsp;</td>
+                                        </template>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="cal-event-container">
+                    <div class="cal-event" *ngFor="let ev of events" [style.left]="styleLeft(ev)" [style.width]="styleWidth(ev)" [style.top]="styleTop(ev)" [style.bottom]="styleBottom(ev)">{{ev.title}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
