@@ -219,3 +219,4 @@ typings/
 *.css
 *.css.map
 **/wwwroot/css/*.less
+npm-debug.log.*
