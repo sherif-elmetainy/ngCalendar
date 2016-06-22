@@ -11,7 +11,10 @@ To start testing the library run the following commands.
 git clone https://github.com/sherif-elmetainy/ngCalendar
 cd ngCalendar/src/ngCalendar.Web
 npm install
+gulp less
+npm tsc
 npm start
 ```
+
 ## TODO
 Provided I have time, this library still needs a lot more work and documentation. 
