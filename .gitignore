@@ -212,11 +212,12 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 typings/
-**/wwwroot/app/**/*.js
-**/wwwroot/app/**/*.js.map
-**/wwwroot/calendar/**/*.js
-**/wwwroot/calendar/**/*.js.map
+**/app/**/*.js
+**/app/**/*.js.map
+**/calendar/**/*.js
+**/calendar/**/*.js.map
 *.css
 *.css.map
-**/wwwroot/css/*.less
 npm-debug.log.*
+definitions/
+dist/
